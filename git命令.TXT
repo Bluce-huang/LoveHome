@@ -1,0 +1,53 @@
+克隆远程仓库命令:git clone 地址
+查看本地文件和远程文件的区别:git status
+把修改的文件变为待提交状态:git commit 文件名 -m"注释"
+把文件上传到远程仓库:git push -u origin master  (需要输入用户名和密码)
+
+添加一个新文件到远程仓库:
+1.创建文件
+2.把创建的文件变为跟踪文件:git add 文件名
+3.把文件变为待提交状态:git commit 文件名 -m"注释"
+4.把文件上传到远程仓库:git push -u origin master
+
+删除文件:
+1.把本地文件删除:git rm 文件名
+2.git commit a.c -m"删除了a.c"
+3.git push -u origin master
+
+上传文件夹
+1.创建文件夹
+2.把创建的文件夹变为跟踪文件:git add 文件夹名
+3.把文件夹变为待提交状态:git commit 文件名 -m"注释"
+4.把文件夹上传到远程仓库:git push -u origin master
+
+重命名文件:
+1.git mv 旧文件名 新文件名
+2.git status查看一下状态
+3.git commit 旧文件名字 -m"重命名"  //删除文件的过程
+4.git status
+5.git commit 新文件名 -m"重命名的新文件提交"
+6.git push -u origin master
+
+查看本地库和远程库的关系:git remote -v
+
+解决冲突：
+冲突是多人修改了同一文件的同一行或多行代码，假如文件newb.c，多人都同时修改了第3行代码
+这个时候如果别人先上传了newb.c文件，你在上传newb.c文件，那么就会产生冲突
+1.上本地文件时，先同步一下远程仓库:git pull
+2.这时会产生冲突
+3.把本地代码恢复到没有冲突的时候:git stash
+4.把远程仓库的代码同步下来:git pull
+5.这时候查看代码发现没有自己的代码，恢复自己的代码:git stash pop
+6.这时代码中就有两人的代码，商量解决冲突（手动修改文件）
+7.git pull一下发现不能同步
+8.git commit 文件名 -m"解决冲突的代码"
+9.git push -u origin master
+
+创建分支:
+1.在远程仓库中创建分支
+2.git pull  把远程仓库的分支同步到本地
+3.查看分支:git branch -a
+4.切换分支:git checkout 分支名
+5.修改文件，然后提交到分支上
+
+
